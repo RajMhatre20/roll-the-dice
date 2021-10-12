@@ -1,0 +1,116 @@
+/* Imports */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+/* Variables */
+:root {
+  --gallery: #ededed;
+  --codgray: #171717;
+  --tundora: #444444;
+  --monza: #da0037;
+}
+
+/* CSS Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: grid;
+  height: 100vh;
+  place-items: center;
+  background-color: #171717;
+  color: var(--gallery);
+}
+/* Main */
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 40%;
+}
+h1 {
+  font-size: 2.5rem;
+}
+p {
+  font-size: 1.2rem;
+}
+.game {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  place-items: center;
+  width: 100%;
+  margin: 2rem;
+}
+.game img {
+  width: 5rem;
+}
+.guess-pad {
+  display: grid;
+  grid-row: repeat(2, 1fr);
+  width: 100%;
+  grid-template: 1fr 1fr / 1fr 1fr 1fr;
+  grid-gap: 5px;
+  margin: 2rem;
+}
+#selected {
+  color: var(--monza);
+}
+.guess-pad button {
+  padding: 1rem;
+  font-size: 1.5rem;
+  border: 2px solid var(--tundora);
+  border-radius: 5px;
+  color: var(--gallery);
+  background-color: var(--codgray);
+  position: relative;
+  overflow: hidden;
+}
+
+button span {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--monza);
+  width: 100px;
+  height: 100px;
+  margin-top: -50px;
+  /* for positioning */
+  margin-left: -50px;
+  animation: ripple 1s;
+  opacity: 0;
+}
+
+/* Add animation */
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(10);
+  }
+}
+
+.game-footer {
+  width: 100%;
+  position: relative;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+#timer {
+  margin: 2rem;
+  position: relative;
+}
+#result {
+  background-color: var(--tundora);
+  text-align: center;
+  width: 100%;
+  display: none;
+  padding: 0.4rem;
+  position: absolute;
+  bottom: -2rem;
+}
