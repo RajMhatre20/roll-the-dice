@@ -21,21 +21,26 @@ buttons.forEach((btn) => {
 });
 
 const rollTheDice = () => {
-  var randomNumber = Math.floor(Math.random() * 6) + 1;
-  dice.src = `./dice/${randomNumber}.svg`;
-  result.style.display = "block";
-  console.log(randomNumber, selected.innerText);
-  if (randomNumber === parseInt(selected.innerText)) {
-    score += 10;
-    document.getElementById("score").innerText = score;
-    result.innerText = "Your Guess was right!";
-  } else {
-    result.innerText = "Your Guess was wrong!";
-  }
-  selected.innerText = 0;
+  dice.style.animation = "roll 0.5s";
   setTimeout(() => {
-    result.style.display = "none";
-  }, 3000);
+    var randomNumber = Math.floor(Math.random() * 6) + 1;
+    dice.src = `./dice/${randomNumber}.svg`;
+    result.style.display = "block";
+    if (randomNumber === parseInt(selected.innerText)) {
+      score += 10;
+      document.getElementById("score").innerText = score;
+      result.innerText = "Your Guess was right!";
+      result.style.boxShadow = "0px 0px 8px var(--sucess)";
+    } else {
+      result.innerText = "Your Guess was wrong!";
+      result.style.boxShadow = "0px 0px 8px var(--failed)";
+    }
+    selected.innerText = 0;
+    setTimeout(() => {
+      result.style.display = "none";
+      dice.style.animation = "";
+    }, 3000);
+  }, 250);
 };
 
 window.onload = () => {
