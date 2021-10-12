@@ -114,3 +114,14 @@ button span {
   position: absolute;
   bottom: -2rem;
 }
+
+@media (max-width: 852px) {
+  main{
+    width: 60%;
+  }
+}
+@media (max-width: 572px) {
+  main{
+    width: 90%;
+  }
+}
